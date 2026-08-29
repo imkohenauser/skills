@@ -1,7 +1,8 @@
 ---
 name: commit-ja
-description: Propose a Japanese Conventional Commit message from staged changes. Use only when explicitly invoked as `$commit-ja` or `/commit-ja`.
+description: Propose a Japanese Conventional Commit message from staged Git changes. Use only when explicitly invoked as `$commit-ja` or `/commit-ja`.
 license: MIT
+disable-model-invocation: true
 ---
 
 # Japanese Commit Message

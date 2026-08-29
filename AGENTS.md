@@ -51,6 +51,10 @@ license: MIT
 - Include concrete trigger terms that help an agent select the skill.
 - `license` is optional. Use it only when the skill or its bundled material has
   an applicable license.
+- For skills that must not auto-invoke, set `disable-model-invocation: true` in
+  `SKILL.md` (Cursor and Claude Code) and
+  `policy.allow_implicit_invocation: false` in `agents/openai.yaml` (Codex).
+  Keep both in sync. Do not rely on description wording alone.
 
 ### Instructions
 
