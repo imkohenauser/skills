@@ -1,6 +1,6 @@
 ---
 name: web-naming-conventions
-description: Choose, review, or safely rename web-project identifiers, paths, assets, routes, and public contracts. Use when the task is primarily about naming; do not invoke for ordinary implementation that merely introduces names.
+description: Choose, review, or safely rename web-project identifiers, file and directory names, CSS classes, assets, routes, API fields, and public contracts. Use when the task is primarily about naming, renaming, or naming conventions; do not invoke for ordinary implementation that merely introduces names.
 license: MIT
 ---
 
