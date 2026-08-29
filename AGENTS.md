@@ -12,6 +12,7 @@ instructions whenever you create, update, move, or review a skill.
   - `scripts/` for reusable automation and validation
   - `assets/` for templates and other static files
 - Do not add a support directory unless the skill needs it.
+- Repository-wide validation lives in `scripts/` at the repository root.
 
 ## Naming
 
@@ -51,10 +52,29 @@ license: MIT
 - Include concrete trigger terms that help an agent select the skill.
 - `license` is optional. Use it only when the skill or its bundled material has
   an applicable license.
-- For skills that must not auto-invoke, set `disable-model-invocation: true` in
-  `SKILL.md` (Cursor and Claude Code) and
-  `policy.allow_implicit_invocation: false` in `agents/openai.yaml` (Codex).
-  Keep both in sync. Do not rely on description wording alone.
+
+The Agent Skills specification allows only `name`, `description`, `license`,
+`compatibility`, `metadata`, and `allowed-tools` in frontmatter. Do not treat
+client-specific keys as spec fields.
+
+### Vendor extensions
+
+`disable-model-invocation` is a Cursor and Claude Code extension. It is not
+part of the Agent Skills specification. Strict `skills-ref` /
+`agentskills validate` reports it as an unexpected field.
+
+When a skill must not auto-invoke, keep both client controls in sync. Do not
+rely on description wording alone:
+
+- `disable-model-invocation: true` in `SKILL.md` (Cursor, Claude Code)
+- `policy.allow_implicit_invocation: false` in `agents/openai.yaml` (Codex)
+
+Omit both when the skill should auto-invoke. Other `SKILL.md` clients may
+ignore either control.
+
+Validate with `python3 scripts/validate-skills.py`. That script runs
+`skills-ref` spec checks after permitting this documented extension. Do not
+run bare `agentskills validate` on explicit-only skills and expect a pass.
 
 ### Instructions
 
@@ -78,11 +98,14 @@ When adding or updating a skill:
 2. Make the smallest change that fully addresses the request.
 3. Preserve unrelated files and user changes.
 4. Verify the directory name, frontmatter, paths, examples, and commands.
-5. Run any relevant validation or tests provided by the repository or skill.
+5. Run `python3 scripts/validate-skills.py` and any other tests provided by
+   the repository or skill.
 6. If `README.md` contains a skill index or structure overview, update the
    affected sections so they remain accurate.
 
 ## References
 
 - [Agent Skills specification](https://agentskills.io/specification.md)
+- [Cursor Agent Skills](https://cursor.com/docs/skills)
+- [Claude Code skills](https://code.claude.com/docs/en/skills)
 - [skills CLI](https://github.com/vercel-labs/skills)

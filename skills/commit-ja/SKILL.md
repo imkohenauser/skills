@@ -2,6 +2,7 @@
 name: commit-ja
 description: Propose a Japanese Conventional Commit message from staged Git changes. Use only when explicitly invoked as `$commit-ja` or `/commit-ja`.
 license: MIT
+# Cursor/Claude Code extension; not in the Agent Skills spec.
 disable-model-invocation: true
 ---
 

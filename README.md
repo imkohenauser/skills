@@ -2,6 +2,8 @@
 
 Reusable skills for AI coding agents, distributed as an [Agent Skills](https://agentskills.io/) repository. Compatible with Cursor, Codex, and other `SKILL.md` clients.
 
+Explicit invocation control is client-dependent. Cursor and Claude Code honor `disable-model-invocation` in `SKILL.md`; Codex honors `policy.allow_implicit_invocation` in `agents/openai.yaml`. Other clients may ignore both and treat every skill as auto-invocable.
+
 ## Skills
 
 | Skill | Description | Invocation |
