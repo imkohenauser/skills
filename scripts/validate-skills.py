@@ -54,12 +54,12 @@ def _read_allow_implicit_invocation(path: Path) -> bool | None:
 
 def validate_skill(skill_dir: Path) -> list[str]:
     from skills_ref.errors import ParseError
-    from skills_ref.parser import find_skill_md, parse_frontmatter
+    from skills_ref.parser import parse_frontmatter
     from skills_ref.validator import validate_metadata
 
     errors: list[str] = []
-    skill_md = find_skill_md(skill_dir)
-    if skill_md is None:
+    skill_md = skill_dir / "SKILL.md"
+    if not skill_md.is_file():
         return ["Missing required file: SKILL.md"]
 
     try:
