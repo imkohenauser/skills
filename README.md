@@ -1,4 +1,4 @@
-# Personal Agent Skills
+# Agent Skills
 
 Reusable skills for AI coding agents, distributed as an [Agent Skills](https://agentskills.io/) repository. Compatible with Cursor, Codex, and other `SKILL.md` clients.
 
