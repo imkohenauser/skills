@@ -12,19 +12,17 @@ Reusable skills for AI coding agents, distributed as an [Agent Skills](https://a
 
 ## Install
 
-List the available skills:
-
-```sh
-npx skills add imkohenauser/skills --list
+```bash
+npx skills add imkohenauser/skills
 ```
 
-Install one skill globally for Codex:
+Use the [skills CLI](https://github.com/vercel-labs/skills) to install into Cursor, Codex, Claude Code, Copilot, Antigravity, and [more agents](https://github.com/vercel-labs/skills#supported-agents).
 
-```sh
-npx skills add imkohenauser/skills --skill web-naming-conventions -g -a codex
+The CLI auto-detects the installed agent. To target one explicitly (for example, Antigravity), pass `--agent`:
+
+```bash
+npx skills add imkohenauser/skills --agent antigravity
 ```
-
-Replace the skill name to install another skill, or omit `--skill` to select interactively.
 
 ## License
 
