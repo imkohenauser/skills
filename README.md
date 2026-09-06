@@ -8,9 +8,9 @@ Explicit invocation control is client-dependent. Cursor and Claude Code honor `d
 
 | Skill | Description | Invocation |
 | --- | --- | --- |
+| [`commit-ja`](skills/commit-ja/) | Propose Japanese Conventional Commit messages from staged changes without modifying Git state. | Explicit: `$commit-ja` / `/commit-ja` |
 | [`web-naming-conventions`](skills/web-naming-conventions/) | Choose, review, and safely rename web-project identifiers and public contracts. | Automatic, or `$web-naming-conventions` / `/web-naming-conventions` |
 | [`review-accessibility`](skills/review-accessibility/) | Review interface code or rendered flows for evidence-backed accessibility barriers. | Explicit: `$review-accessibility` / `/review-accessibility` |
-| [`commit-ja`](skills/commit-ja/) | Propose Japanese Conventional Commit messages from staged changes without modifying Git state. | Explicit: `$commit-ja` / `/commit-ja` |
 
 Codex uses `$skill-name`. Cursor uses `/skill-name`.
 
@@ -30,7 +30,7 @@ npx skills add imkohenauser/skills --agent cursor
 
 For Cursor Cloud Agents, omit `-g` so the skill is installed into the project (`.agents/skills/`). User-level `~/.cursor/skills/` is not copied to Cloud Agents.
 
-In Cursor Agent chat, type `/` and search for the skill name. Explicit-only skills (`review-accessibility`, `commit-ja`) load only when invoked this way.
+In Cursor Agent chat, type `/` and search for the skill name. Explicit-only s´kills (`review-accessibility`, `commit-ja`) load only when invoked this way.
 
 ## License
 
