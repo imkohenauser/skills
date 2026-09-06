@@ -1,7 +1,9 @@
 ---
 name: review-accessibility
-description: Review existing interface code, diffs, or rendered flows for accessibility barriers. Use only when the user explicitly requests a dedicated accessibility or WCAG review or audit. Report findings only; do not modify code unless separately asked.
+description: Review existing interface code, diffs, or rendered flows for accessibility barriers. Use only when explicitly invoked as `$review-accessibility` or `/review-accessibility`. Report findings only; do not modify code unless separately asked.
 license: MIT
+# Cursor/Claude Code extension; not in the Agent Skills spec.
+disable-model-invocation: true
 ---
 
 # Review Accessibility
