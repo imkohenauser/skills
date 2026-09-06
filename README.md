@@ -6,13 +6,11 @@ Explicit invocation control is client-dependent. Cursor and Claude Code honor `d
 
 ## Skills
 
-
-| Skill                                                      | Description                                                                                    | Invocation                                                          |
-| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `[web-naming-conventions](skills/web-naming-conventions/)` | Choose, review, and safely rename web-project identifiers and public contracts.                | Automatic, or `$web-naming-conventions` / `/web-naming-conventions` |
-| `[review-accessibility](skills/review-accessibility/)`     | Review interface code or rendered flows for evidence-backed accessibility barriers.            | Explicit: `$review-accessibility` / `/review-accessibility`         |
-| `[commit-ja](skills/commit-ja/)`                           | Propose Japanese Conventional Commit messages from staged changes without modifying Git state. | Explicit: `$commit-ja` / `/commit-ja`                               |
-
+| Skill | Description | Invocation |
+| --- | --- | --- |
+| [`web-naming-conventions`](skills/web-naming-conventions/) | Choose, review, and safely rename web-project identifiers and public contracts. | Automatic, or `$web-naming-conventions` / `/web-naming-conventions` |
+| [`review-accessibility`](skills/review-accessibility/) | Review interface code or rendered flows for evidence-backed accessibility barriers. | Explicit: `$review-accessibility` / `/review-accessibility` |
+| [`commit-ja`](skills/commit-ja/) | Propose Japanese Conventional Commit messages from staged changes without modifying Git state. | Explicit: `$commit-ja` / `/commit-ja` |
 
 Codex uses `$skill-name`. Cursor uses `/skill-name`.
 
