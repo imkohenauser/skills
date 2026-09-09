@@ -12,7 +12,7 @@ Choose names that communicate domain meaning and remain consistent with the proj
 
 1. Inspect the repository's explicit rules, tooling, nearby code, and established vocabulary.
 2. Identify whether the name is internal or a contract used by URLs, APIs, packages, analytics, tests, storage, or external consumers.
-3. Prefer, in order: explicit project rules; compatibility requirements; consistent local usage; repository-wide usage; the defaults in [references/conventions.md](references/conventions.md). Read the reference only when the repository does not settle the choice or the task reviews conventions across multiple naming surfaces.
+3. Select candidate names using, in order: explicit project rules; consistent local usage; repository-wide usage; the defaults in [references/conventions.md](references/conventions.md). Read the reference only when the repository does not settle the choice or the task reviews conventions across multiple naming surfaces. Separately assess whether an existing name can change compatibly; a preferred spelling does not justify breaking a published contract.
 4. Recommend one best name. Mention alternatives only when they represent a meaningful semantic choice.
 5. For an implementation, update all in-scope references and run relevant checks. When changing an existing name, also read and follow [references/rename-safety.md](references/rename-safety.md).
 6. For a review, do not edit. For each material issue, report the current name and location, the problem, the recommended name, and any compatibility or migration risk.
@@ -23,3 +23,4 @@ Choose names that communicate domain meaning and remain consistent with the proj
 - Name the domain concept, role, result, or contract rather than its current implementation.
 - Do not normalize unrelated names or expand a rename beyond the requested scope.
 - Treat public names and dynamically constructed references as migration risks. Search for consumers before changing them.
+- When a naming rule conflicts with an existing contract, preserve compatibility or implement a migration within the authorized scope. If that cannot be established, retain the contract name and explain the migration needed to adopt the candidate.

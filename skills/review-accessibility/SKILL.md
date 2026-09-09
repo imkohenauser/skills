@@ -30,6 +30,8 @@ Automated audits supplement manual review. They do not establish conformance.
 
 Report only issues supported by code or observed behavior. Each finding must include severity, location or affected flow, current behavior, affected users and task impact, recommended outcome, and verification status.
 
+Classify each finding as a requirement failure or a recommended improvement. For a requirement failure, cite the applicable WCAG success criterion and level or the explicit project requirement. Do not treat an advisory pattern or a criterion above the review target as a requirement unless the project adopts it.
+
 Do not report conventions as failures without concrete user impact:
 
 - Do not report heading-level preferences as standalone failures.
@@ -46,9 +48,15 @@ Do not report conventions as failures without concrete user impact:
 
 List findings first, ordered by severity:
 
-| Severity | Location | Finding | User impact | Recommendation | Verification |
+| Severity | Location | Finding and basis | User impact | Recommendation | Verification |
 | --- | --- | --- | --- | --- | --- |
 
 Use `path:line` for code findings and a concise flow or element name for runtime findings.
 
-Close with `Block` when a HIGH finding remains and `Approve` when no blocking finding remains in the inspected scope. State `Not fully verified` when required browser, screen-reader, contrast, zoom, or device checks could not be performed. Approval applies only to the reviewed scope and is not a claim of complete WCAG conformance.
+Close with one verdict, in this order:
+
+- `Block` when a confirmed HIGH finding remains, even if other checks are incomplete.
+- `Inconclusive` when no HIGH finding is confirmed but checks needed to judge the in-scope tasks could not be performed. Name the missing checks and what would resolve them.
+- `Approve` when no HIGH finding remains and the checks needed for the scoped review are complete. Retain any MEDIUM or LOW findings.
+
+State the inspected scope and verification limits. Mark individual unavailable checks as `Not verified`; do not imply that source inspection verifies browser or assistive-technology behavior. Approval applies only to the reviewed scope and is not a claim of complete WCAG conformance.

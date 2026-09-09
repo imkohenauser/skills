@@ -1,6 +1,6 @@
 ---
 name: commit-ja
-description: Propose a Japanese Conventional Commit message from staged Git changes when explicitly invoked as `$commit-ja` or `/commit-ja`. Also apply the Compose rules when a repository rule such as AGENTS.md names this skill as the commit convention.
+description: Propose a Japanese Conventional Commit message from staged Git changes, or create that commit when the current task authorizes it. Use when invoked as `$commit-ja` or `/commit-ja`, attached with `@`, used as a Custom Mode, or when a repository rule such as AGENTS.md names this skill and the agent reads this SKILL.md.
 license: MIT
 # Cursor/Claude Code extension; not in the Agent Skills spec.
 disable-model-invocation: true
@@ -8,11 +8,12 @@ disable-model-invocation: true
 
 # Japanese Commit Message
 
-Compose always applies.
+Compose always applies once these instructions are loaded.
 
-Inspect and Propose apply only when this skill is explicitly invoked as `$commit-ja` or `/commit-ja`.
+Choose Propose or Apply from the current task, not from how the skill was loaded. `@` attachment and Custom Mode load these instructions; they do not authorize a commit.
 
-Apply applies when a repository rule such as AGENTS.md names this skill as the commit convention and the current task is to create a commit.
+- Propose when the task is to draft a commit message, including a standalone `$commit-ja` or `/commit-ja` invocation with no request to create a commit.
+- Apply when these instructions are loaded and the current task authorizes creating commits.
 
 ## Compose
 
@@ -33,7 +34,7 @@ Decide how many messages or commits to produce in Propose or Apply, not here.
 
 ## Inspect
 
-When explicitly invoked, read Git state only; do not edit files, change the index, or create a commit.
+When proposing a message, read Git state only; do not edit files, change the index, or create a commit.
 
 Run these commands in parallel and do not inspect anything else unless the staged diff is insufficient:
 
@@ -46,15 +47,15 @@ Use only the staged diff as the source of truth. Ignore unstaged and untracked c
 
 If there are no staged changes, follow Propose for the empty-state output and stop.
 
-If paths and diff hunks do not provide enough context for an accurate message, read at most one relevant file.
+If paths and diff hunks do not provide enough context for an accurate message, read only the additional context needed to resolve the uncertainty. Keep the message grounded in the staged changes.
 
 ## Propose
 
-When explicitly invoked, do not create a commit. Output only the proposed message text inside a single fenced code block labeled `text` for clipboard copying. Do not add an introduction, explanation, conclusion, or reasoning outside the fence.
+When proposing a message, do not create a commit. Output only the proposed message text inside a single fenced code block labeled `text` for clipboard copying. Do not add an introduction, explanation, conclusion, or reasoning outside the fence.
 
 If there are no staged changes, output only `ステージ済みの変更はありません` inside that same fence and stop.
 
-If the staged diff clearly combines independently committable concerns with different types, output one message for each concern. Keep them in the same fence and separate them with `---`.
+If the staged diff clearly combines concerns that can be applied and reverted independently, output one message for each concern, even when they share a type. Keep them in the same fence and separate them with `---`. Keep a change and its supporting tests or documentation together when they serve the same purpose.
 
 Example:
 
@@ -66,6 +67,10 @@ feat(auth): OAuth2ログインエンドポイントの追加
 
 ## Apply
 
-When used as the commit convention, write the commit message as plain text. Do not wrap it in a code fence, and do not emit a proposal instead of committing.
+Use this path when these instructions are loaded and the current task authorizes creating commits. Loading the skill, naming it in a repository rule, attaching it with `@`, or using it as a Custom Mode does not itself authorize a commit. If the task only asks for a commit message, follow Inspect and Propose.
 
-If the staged diff clearly combines independently committable concerns with different types, create one commit for each concern. Do not join messages with `---`.
+1. Before changing the index, inspect `git status --short`, `git diff --cached --stat`, and `git diff --cached`. Inspect `git diff` when unstaged changes overlap the intended commit or staging is needed. Identify the authorized changes, unrelated changes, and partially staged files.
+2. Stage only authorized paths or hunks that the task requires. Preserve unrelated staged changes and unstaged portions of partially staged files; do not use blanket staging or a reset to simplify selection. If the intended changes cannot be isolated safely, stop before committing and explain the unresolved scope or staging issue.
+3. Split concerns that can be applied and reverted independently, regardless of type. Keep each change with its supporting tests or documentation. Preserve remaining changes and their staging state between commits.
+4. Immediately before each commit, recheck status and the exact staged diff to be committed. Commit only when it is nonempty, contains only the intended changes, has no unresolved conflicts, and required repository checks have passed. If nothing remains to commit, report that and stop; do not create an empty commit. If a precondition is unmet, report it without committing.
+5. Compose the message from that diff using Compose and pass it to Git as plain text, without code fences or `---` separators. After each commit, verify the resulting commit and remaining Git state before reporting success. If a commit or hook fails, inspect the resulting state before retrying; do not bypass required hooks or checks.
