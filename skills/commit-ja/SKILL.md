@@ -1,6 +1,6 @@
 ---
 name: commit-ja
-description: Propose a Japanese Conventional Commit message from staged Git changes when explicitly invoked as `$commit-ja` or `/commit-ja`. Also apply the Compose rules when a repository rule such as AGENTS.md names this skill as the commit convention.
+description: Propose a Japanese Conventional Commit message from staged Git changes, or create that commit when the current task authorizes it. Use when invoked as `$commit-ja` or `/commit-ja`, attached with `@`, used as a Custom Mode, or when a repository rule such as AGENTS.md names this skill and the agent reads this SKILL.md.
 license: MIT
 # Cursor/Claude Code extension; not in the Agent Skills spec.
 disable-model-invocation: true
@@ -8,11 +8,12 @@ disable-model-invocation: true
 
 # Japanese Commit Message
 
-Compose always applies.
+Compose always applies once these instructions are loaded.
 
-Inspect and Propose apply only when this skill is explicitly invoked as `$commit-ja` or `/commit-ja`.
+Choose Propose or Apply from the current task, not from how the skill was loaded. `@` attachment and Custom Mode load these instructions; they do not authorize a commit.
 
-Apply applies when a repository rule such as AGENTS.md names this skill as the commit convention and the current task is to create a commit.
+- Propose when the task is to draft a commit message, including a standalone `$commit-ja` or `/commit-ja` invocation with no request to create a commit.
+- Apply when these instructions are loaded and the current task authorizes creating commits.
 
 ## Compose
 
@@ -33,7 +34,7 @@ Decide how many messages or commits to produce in Propose or Apply, not here.
 
 ## Inspect
 
-When explicitly invoked, read Git state only; do not edit files, change the index, or create a commit.
+When proposing a message, read Git state only; do not edit files, change the index, or create a commit.
 
 Run these commands in parallel and do not inspect anything else unless the staged diff is insufficient:
 
@@ -50,7 +51,7 @@ If paths and diff hunks do not provide enough context for an accurate message, r
 
 ## Propose
 
-When explicitly invoked, do not create a commit. Output only the proposed message text inside a single fenced code block labeled `text` for clipboard copying. Do not add an introduction, explanation, conclusion, or reasoning outside the fence.
+When proposing a message, do not create a commit. Output only the proposed message text inside a single fenced code block labeled `text` for clipboard copying. Do not add an introduction, explanation, conclusion, or reasoning outside the fence.
 
 If there are no staged changes, output only `ステージ済みの変更はありません` inside that same fence and stop.
 
@@ -66,7 +67,7 @@ feat(auth): OAuth2ログインエンドポイントの追加
 
 ## Apply
 
-Use this path only when the current task authorizes creating commits and a repository rule names this skill as the commit convention. Naming the skill in a repository rule does not itself authorize a commit. A standalone explicit invocation follows Inspect and Propose.
+Use this path when these instructions are loaded and the current task authorizes creating commits. Loading the skill, naming it in a repository rule, attaching it with `@`, or using it as a Custom Mode does not itself authorize a commit. If the task only asks for a commit message, follow Inspect and Propose.
 
 1. Before changing the index, inspect `git status --short`, `git diff --cached --stat`, and `git diff --cached`. Inspect `git diff` when unstaged changes overlap the intended commit or staging is needed. Identify the authorized changes, unrelated changes, and partially staged files.
 2. Stage only authorized paths or hunks that the task requires. Preserve unrelated staged changes and unstaged portions of partially staged files; do not use blanket staging or a reset to simplify selection. If the intended changes cannot be isolated safely, stop before committing and explain the unresolved scope or staging issue.
