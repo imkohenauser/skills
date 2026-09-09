@@ -8,11 +8,13 @@ Explicit invocation control is client-dependent. Cursor and Claude Code honor `d
 
 | Skill | Description | Invocation |
 | --- | --- | --- |
-| [`commit-ja`](skills/commit-ja/) | Propose Japanese Conventional Commit messages from staged changes without modifying Git state. | Explicit: `$commit-ja` / `/commit-ja` |
+| [`commit-ja`](skills/commit-ja/) | Japanese Conventional Commit messages: propose from staged changes on explicit invoke, or apply as a commit convention when a repository rule such as AGENTS.md names this skill. | Explicit propose: `$commit-ja` / `/commit-ja`. Also as an AGENTS.md commit convention. |
 | [`web-naming-conventions`](skills/web-naming-conventions/) | Choose, review, and safely rename web-project identifiers and public contracts. | Automatic, or `$web-naming-conventions` / `/web-naming-conventions` |
 | [`review-accessibility`](skills/review-accessibility/) | Review interface code or rendered flows for evidence-backed accessibility barriers. | Explicit: `$review-accessibility` / `/review-accessibility` |
 
 Codex uses `$skill-name`. Cursor uses `/skill-name`.
+
+Projects may also name `commit-ja` in `AGENTS.md` as the commit-message convention. Follow Compose and Apply in that case; Inspect and Propose apply only to `$commit-ja` / `/commit-ja`.
 
 ## Install
 

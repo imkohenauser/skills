@@ -1,6 +1,6 @@
 ---
 name: commit-ja
-description: Propose a Japanese Conventional Commit message from staged Git changes. Use only when explicitly invoked as `$commit-ja` or `/commit-ja`.
+description: Propose a Japanese Conventional Commit message from staged Git changes when explicitly invoked as `$commit-ja` or `/commit-ja`. Also apply the Compose rules when a repository rule such as AGENTS.md names this skill as the commit convention.
 license: MIT
 # Cursor/Claude Code extension; not in the Agent Skills spec.
 disable-model-invocation: true
@@ -8,22 +8,11 @@ disable-model-invocation: true
 
 # Japanese Commit Message
 
-Propose commit text for the staged changes. Read Git state only; do not edit files, change the index, or create a commit.
+Compose always applies.
 
-## Inspect
+Inspect and Propose apply only when this skill is explicitly invoked as `$commit-ja` or `/commit-ja`.
 
-Run these commands in parallel and do not inspect anything else unless the staged diff is insufficient:
-
-- `git status --short`
-- `git diff --cached --stat`
-- `git diff --cached`
-- `git log -8 --format='%s'`
-
-Use only the staged diff as the source of truth. Ignore unstaged and untracked changes. Use recent commit subjects only to match the repository's established message style; do not search for additional commit conventions.
-
-If there are no staged changes, output `ステージ済みの変更はありません` and stop.
-
-If paths and diff hunks do not provide enough context for an accurate message, read at most one relevant file.
+Apply applies when a repository rule such as AGENTS.md names this skill as the commit convention and the current task is to create a commit.
 
 ## Compose
 
@@ -40,11 +29,32 @@ Use the Conventional Commits form `type(scope)!: subject`:
 - Keep ticket numbers and URLs out of the subject.
 - Add a body only when it clarifies motivation, behavior, or impact. Do not narrate implementation details.
 
-Prefer one message. If the staged diff clearly combines independently committable concerns with different types, output one message for each proposed commit and separate them with `---`.
+Decide how many messages or commits to produce in Propose or Apply, not here.
 
-## Output
+## Inspect
 
-Output only the proposed message text. Do not add a code fence, introduction, explanation, conclusion, or reasoning.
+When explicitly invoked, read Git state only; do not edit files, change the index, or create a commit.
+
+Run these commands in parallel and do not inspect anything else unless the staged diff is insufficient:
+
+- `git status --short`
+- `git diff --cached --stat`
+- `git diff --cached`
+- `git log -8 --format='%s'`
+
+Use only the staged diff as the source of truth. Ignore unstaged and untracked changes. Use recent commit subjects only to match the repository's established message style; do not search for additional commit conventions.
+
+If there are no staged changes, follow Propose for the empty-state output and stop.
+
+If paths and diff hunks do not provide enough context for an accurate message, read at most one relevant file.
+
+## Propose
+
+When explicitly invoked, do not create a commit. Output only the proposed message text inside a single fenced code block labeled `text` for clipboard copying. Do not add an introduction, explanation, conclusion, or reasoning outside the fence.
+
+If there are no staged changes, output only `ステージ済みの変更はありません` inside that same fence and stop.
+
+If the staged diff clearly combines independently committable concerns with different types, output one message for each concern. Keep them in the same fence and separate them with `---`.
 
 Example:
 
@@ -53,3 +63,9 @@ feat(auth): OAuth2ログインエンドポイントの追加
 
 リフレッシュトークンを使ったセッション継続に対応。
 ```
+
+## Apply
+
+When used as the commit convention, write the commit message as plain text. Do not wrap it in a code fence, and do not emit a proposal instead of committing.
+
+If the staged diff clearly combines independently committable concerns with different types, create one commit for each concern. Do not join messages with `---`.
