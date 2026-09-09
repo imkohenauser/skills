@@ -14,7 +14,9 @@ Explicit invocation control is client-dependent. Cursor and Claude Code honor `d
 
 Codex uses `$skill-name`. Cursor uses `/skill-name`.
 
-Projects may also name `commit-ja` in `AGENTS.md` as the commit-message convention. Follow Compose and Apply in that case; Inspect and Propose apply only to `$commit-ja` / `/commit-ja`.
+Projects may also name `commit-ja` in `AGENTS.md` as the commit-message convention. Follow Compose and Apply when the task authorizes creating commits; the convention alone does not authorize a commit. Apply checks Git state and the intended staged changes before committing. Standalone `$commit-ja` / `/commit-ja` invocations follow Inspect and Propose.
+
+`review-accessibility` distinguishes requirement failures from recommended improvements and reports `Block`, `Inconclusive`, or `Approve` for the inspected scope. `web-naming-conventions` selects names separately from deciding whether an existing contract can be safely migrated.
 
 ## Install
 
@@ -32,7 +34,7 @@ npx skills add imkohenauser/skills --agent cursor
 
 For Cursor Cloud Agents, omit `-g` so the skill is installed into the project (`.agents/skills/`). User-level `~/.cursor/skills/` is not copied to Cloud Agents.
 
-In Cursor Agent chat, type `/` and search for the skill name. Explicit-only s´kills (`review-accessibility`, `commit-ja`) load only when invoked this way.
+In Cursor Agent chat, type `/` and search for the skill name. Explicit-only skills (`review-accessibility`, `commit-ja`) can be invoked this way; the repository-convention use of `commit-ja` is described above.
 
 ## License
 

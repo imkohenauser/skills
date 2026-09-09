@@ -46,7 +46,7 @@ Use only the staged diff as the source of truth. Ignore unstaged and untracked c
 
 If there are no staged changes, follow Propose for the empty-state output and stop.
 
-If paths and diff hunks do not provide enough context for an accurate message, read at most one relevant file.
+If paths and diff hunks do not provide enough context for an accurate message, read only the additional context needed to resolve the uncertainty. Keep the message grounded in the staged changes.
 
 ## Propose
 
@@ -54,7 +54,7 @@ When explicitly invoked, do not create a commit. Output only the proposed messag
 
 If there are no staged changes, output only `ステージ済みの変更はありません` inside that same fence and stop.
 
-If the staged diff clearly combines independently committable concerns with different types, output one message for each concern. Keep them in the same fence and separate them with `---`.
+If the staged diff clearly combines concerns that can be applied and reverted independently, output one message for each concern, even when they share a type. Keep them in the same fence and separate them with `---`. Keep a change and its supporting tests or documentation together when they serve the same purpose.
 
 Example:
 
@@ -66,6 +66,10 @@ feat(auth): OAuth2ログインエンドポイントの追加
 
 ## Apply
 
-When used as the commit convention, write the commit message as plain text. Do not wrap it in a code fence, and do not emit a proposal instead of committing.
+Use this path only when the current task authorizes creating commits and a repository rule names this skill as the commit convention. Naming the skill in a repository rule does not itself authorize a commit. A standalone explicit invocation follows Inspect and Propose.
 
-If the staged diff clearly combines independently committable concerns with different types, create one commit for each concern. Do not join messages with `---`.
+1. Before changing the index, inspect `git status --short`, `git diff --cached --stat`, and `git diff --cached`. Inspect `git diff` when unstaged changes overlap the intended commit or staging is needed. Identify the authorized changes, unrelated changes, and partially staged files.
+2. Stage only authorized paths or hunks that the task requires. Preserve unrelated staged changes and unstaged portions of partially staged files; do not use blanket staging or a reset to simplify selection. If the intended changes cannot be isolated safely, stop before committing and explain the unresolved scope or staging issue.
+3. Split concerns that can be applied and reverted independently, regardless of type. Keep each change with its supporting tests or documentation. Preserve remaining changes and their staging state between commits.
+4. Immediately before each commit, recheck status and the exact staged diff to be committed. Commit only when it is nonempty, contains only the intended changes, has no unresolved conflicts, and required repository checks have passed. If nothing remains to commit, report that and stop; do not create an empty commit. If a precondition is unmet, report it without committing.
+5. Compose the message from that diff using Compose and pass it to Git as plain text, without code fences or `---` separators. After each commit, verify the resulting commit and remaining Git state before reporting success. If a commit or hook fails, inspect the resulting state before retrying; do not bypass required hooks or checks.

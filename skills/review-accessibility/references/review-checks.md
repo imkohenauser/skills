@@ -18,7 +18,7 @@ Apply only the checks relevant to the reviewed interface. Prefer project require
 - Complete every in-scope task with the keyboard alone.
 - Verify logical focus order, visible focus indication, and equivalent keyboard operation for pointer interactions.
 - Flag `outline: none` or equivalent focus suppression without a visible replacement, and verify custom indicators in forced-colors mode when applicable.
-- Reject positive `tabindex`. Composite widgets may use roving `tabindex="0"` and `tabindex="-1"` with their expected arrow-key behavior.
+- Inspect positive `tabindex` for a sequence that disrupts meaning or operation; report the demonstrated ordering problem, not the attribute alone. Prefer natural DOM order as a maintenance recommendation. Composite widgets may use roving `tabindex="0"` and `tabindex="-1"` with their expected arrow-key behavior.
 - Verify that modal overlays move focus inside, keep background content out of sequential focus and the accessibility tree through native modal behavior or an equivalent such as `inert`, contain focus, close with Escape when expected, and restore focus to a logical element.
 - Verify that hidden, disabled, or inactive content is not left in the tab order.
 - For client-side navigation, verify that the new view has an appropriate title, focus destination, and scroll behavior.
@@ -43,7 +43,7 @@ Apply only the checks relevant to the reviewed interface. Prefer project require
 
 ## Motion and media
 
-- Verify that spatial motion, parallax, smooth scrolling, and autoplay respect reduced-motion preferences without removing necessary state cues.
+- Review spatial motion, parallax, smooth scrolling, and autoplay for user impact and reduced-motion support without removing necessary state cues. Distinguish applicable requirements for pausing content or limiting flashes from the AAA criterion 2.3.3 for animation from interactions. At an AA baseline, report additional reduced-motion support as a recommended improvement unless an explicit project requirement applies.
 - Verify visible controls for media or content that moves, blinks, or updates automatically, and check that essential information is not available only briefly.
 - Verify captions for prerecorded video with speech and an appropriate text alternative or transcript for audio content.
 

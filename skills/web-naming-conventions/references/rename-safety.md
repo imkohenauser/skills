@@ -13,7 +13,8 @@ Use this checklist for implementation requests that change an existing name. App
 ## Preserve compatibility
 
 - Treat URLs, API fields, package names, environment variables, analytics names, and persisted keys as contracts.
-- Add redirects, aliases, deprecation periods, or data migration when consumers cannot change atomically.
+- Add redirects, aliases, deprecation periods, or data migration within the authorized scope when consumers cannot change atomically. Verify that existing consumers still work or that the agreed migration covers them.
+- Do not infer that external consumers are absent from a repository search alone. Record unknown consumers and unresolved migration risks. When compatibility cannot be preserved and migration exceeds the task's scope, retain the existing contract name and describe the required follow-up; continue independent in-scope changes.
 - Do not rename generated output directly; change its source or generator configuration.
 
 ## Verify
