@@ -29,7 +29,7 @@ Use the Conventional Commits form `type(scope)!: subject`:
 - Keep ticket numbers and URLs out of the subject.
 - Add a body only when it clarifies motivation, behavior, or impact. Do not narrate implementation details.
 
-Prefer one commit per concern.
+Decide how many messages or commits to produce in Propose or Apply, not here.
 
 ## Inspect
 
@@ -54,7 +54,7 @@ When explicitly invoked, do not create a commit. Output only the proposed messag
 
 If there are no staged changes, output only `ステージ済みの変更はありません` inside that same fence and stop.
 
-If the staged diff clearly combines independently committable concerns with different types, output one message for each proposed commit. Keep them in the same fence and separate them with `---`.
+If the staged diff clearly combines independently committable concerns with different types, output one message for each concern. Keep them in the same fence and separate them with `---`.
 
 Example:
 
@@ -68,4 +68,4 @@ feat(auth): OAuth2ログインエンドポイントの追加
 
 When used as the commit convention, write the commit message as plain text. Do not wrap it in a code fence, and do not emit a proposal instead of committing.
 
-If the staged diff combines independently committable concerns with different types, create separate commits. Do not join messages with `---`.
+If the staged diff clearly combines independently committable concerns with different types, create one commit for each concern. Do not join messages with `---`.
