@@ -1,111 +1,41 @@
-# Repository Instructions for AI Agents
+# Repository conventions
 
-This repository contains reusable skills for AI coding agents. Follow these
-instructions whenever you create, update, move, or review a skill.
+## Structure
 
-## Repository layout
+- Store each skill in `skills/<skill-name>/SKILL.md`.
+- Use lowercase kebab-case names, at most 64 characters. Match the directory and frontmatter name.
+- Add `references/`, `scripts/`, or `assets/` only when needed. Link supporting files relative to the skill directory.
+- Keep repository-wide validation in `scripts/`.
 
-- Store each skill in `skills/<skill-name>/`.
-- Every skill directory must contain a `SKILL.md` file.
-- Keep supporting material next to the skill that uses it:
-  - `references/` for detailed documentation and examples
-  - `scripts/` for reusable automation and validation
-  - `assets/` for templates and other static files
-- Do not add a support directory unless the skill needs it.
-- Repository-wide validation lives in `scripts/` at the repository root.
-
-## Naming
-
-- Use lowercase kebab-case for skill names: letters, numbers, and hyphens only.
-- Limit skill names to 64 characters.
-- The directory name and the `name` field in `SKILL.md` must match exactly.
-
-Example:
-
-```text
-skills/example-skill/SKILL.md
-```
-
-```yaml
-name: example-skill
-```
-
-## `SKILL.md`
-
-Begin each `SKILL.md` with YAML frontmatter:
+## Frontmatter
 
 ```yaml
 ---
 name: example-skill
-description: Use when an agent needs to ...
+description: Use when choosing names for web-project identifiers.
 license: MIT
 ---
 ```
 
-### Frontmatter
+Require `name` and `description`. Describe what the skill does and when to use it, with concrete trigger terms, in at most 1,024 characters. Use third-person wording such as `Use when ...`. Include `license` only when applicable.
 
-- `name` is required and must follow the naming rules above.
-- `description` is required, must be no more than 1,024 characters, and must
-  explain both what the skill does and when it should be used.
-- Write descriptions in the third person. Prefer `Use when ...` over
-  `You can use this when ...`.
-- Include concrete trigger terms that help an agent select the skill.
-- `license` is optional. Use it only when the skill or its bundled material has
-  an applicable license.
+Other specification fields are `compatibility`, `metadata`, and `allowed-tools`.
 
-The Agent Skills specification allows only `name`, `description`, `license`,
-`compatibility`, `metadata`, and `allowed-tools` in frontmatter. Do not treat
-client-specific keys as spec fields.
+For explicit-only invocation, set both client controls:
 
-### Vendor extensions
+- `disable-model-invocation: true` in `SKILL.md` for Cursor and Claude Code.
+- `policy.allow_implicit_invocation: false` in `agents/openai.yaml` for Codex.
 
-`disable-model-invocation` is a Cursor and Claude Code extension. It is not
-part of the Agent Skills specification. Strict `skills-ref` /
-`agentskills validate` reports it as an unexpected field.
+Omit both for automatic invocation. Other clients may ignore these controls. `disable-model-invocation` is a vendor extension; the repository validator permits it before running strict spec checks.
 
-When a skill must not auto-invoke, keep both client controls in sync. Do not
-rely on description wording alone:
+## Changes
 
-- `disable-model-invocation: true` in `SKILL.md` (Cursor, Claude Code)
-- `policy.allow_implicit_invocation: false` in `agents/openai.yaml` (Codex)
+Read the affected files before editing. Preserve unrelated changes, update the README index when needed, and check names, frontmatter, links, examples, and commands.
 
-Omit both when the skill should auto-invoke. Other `SKILL.md` clients may
-ignore either control.
-
-Validate with `python3 scripts/validate-skills.py`. That script runs
-`skills-ref` spec checks after permitting this documented extension. Do not
-run bare `agentskills validate` on explicit-only skills and expect a pass.
-
-### Instructions
-
-- Write concise, imperative, task-oriented instructions.
-- Document decisions, workflows, pitfalls, verification, and cleanup that are
-  specific to the skill.
-- Do not duplicate general product or library documentation. Link to an
-  authoritative source when background material is sufficient.
-- Keep `SKILL.md` focused and preferably under 500 lines. Move lengthy details
-  into `references/` and link to the exact files an agent should read.
-- Prefer existing scripts, templates, and assets over duplicating their content
-  in `SKILL.md`.
-- Make referenced paths relative to the skill directory and verify that every
-  link and command is valid.
-
-## Change workflow
-
-When adding or updating a skill:
-
-1. Inspect the repository and the affected skill before editing.
-2. Make the smallest change that fully addresses the request.
-3. Preserve unrelated files and user changes.
-4. Verify the directory name, frontmatter, paths, examples, and commands.
-5. Run `python3 scripts/validate-skills.py` and any other tests provided by
-   the repository or skill.
-6. If `README.md` contains a skill index or structure overview, update the
-   affected sections so they remain accurate.
+Run `python3 scripts/validate-skills.py` and any relevant script tests. Install its dependency with `pip install skills-ref` if needed.
 
 ## References
 
 - [Agent Skills specification](https://agentskills.io/specification.md)
-- [Cursor Agent Skills](https://cursor.com/docs/skills)
+- [Cursor skills](https://cursor.com/docs/skills)
 - [Claude Code skills](https://code.claude.com/docs/en/skills)
-- [skills CLI](https://github.com/vercel-labs/skills)

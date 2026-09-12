@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-"""Validate skills against the Agent Skills spec, plus documented vendor fields.
-
-Strict `skills-ref` / `agentskills validate` rejects `disable-model-invocation`
-because that key is a Cursor and Claude Code extension, not a spec field.
-This script strips that documented extension, runs skills-ref spec checks on
-the remaining frontmatter, then checks the vendor field and Codex sidecar.
-"""
+"""Validate skill metadata and matching client invocation controls."""
 
 from __future__ import annotations
 
