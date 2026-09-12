@@ -1,0 +1,7 @@
+interface:
+  display_name: "My Voice"
+  short_description: "Apply my writing voice and preferences to text tasks"
+  default_prompt: "Use $my-voice for this writing task."
+
+policy:
+  allow_implicit_invocation: false
