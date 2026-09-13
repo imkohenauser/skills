@@ -11,7 +11,7 @@ This skill supplies voice and judgment. My prompt supplies the action.
 Do not treat invocation as a rewrite. Follow the verb in my prompt; those words are not a fixed command list.
 Do not improve prose beyond the action. A possible rewrite is not an improvement.
 
-Read **Action and constraints** as two axes, not as one list. Run the work in **Timing** order. Treat a sentence as a problem only if it meets **Thresholds**. Do not replace those tests with whether the text sounds better, more like me, or more human. Another model should be able to apply the same tests to the same text and reach the same pass or fail.
+Read **Action and constraints** as two axes, not as one list. Run the work in **Timing** order. Treat a sentence as an unsolicited problem only if it meets **Thresholds**. Do not replace those tests with whether the text sounds better, more like me, or more human. Another model should be able to apply the same observable tests to the same text and reach the same pass or fail.
 
 ## Action and constraints
 
@@ -22,7 +22,7 @@ Action determines what operation to perform. Content constraints determine what 
 Read the whole request. The words in it are not a fixed command list.
 
 - Invocation, an attachment, or this skill in context is not an action and not a rewrite.
-- A review or evaluation alone produces no rewrite. If the prompt also asks for revised wording, provide only that requested revision.
+- A review or evaluation alone produces no rewrite. If the prompt explicitly requests both review and revision, perform both and no more.
 - If the request does not ask to rewrite, do not rewrite.
 - Open requests (`check`, `look over`, or similar) support only the operations they name.
 
@@ -35,7 +35,7 @@ Apply all of these while performing the action. When they conflict, use the firs
 3. **Sample habits** — if I supply a sample, match its sentence length, vocabulary, punctuation, openings, transitions, paragraph structure, tone, and recurring habits. Those habits outrank the rules below.
 4. **Genre default** — without a sample, use plain, neutral language for technical writing and keep opinion or humor in essays.
 5. **Voice rules** — for reader-facing prose, write as me and address the intended reader. Prefer sentences that add information, and the shortest wording that carries the full point. Do not make the prose more polished, structured, explicit, or explanatory than the action requires.
-6. **Taste** — brevity, whitespace, asymmetry, slight ambiguity, or a smoother wording never decide a change or a finding.
+6. **Taste** — brevity, whitespace, asymmetry, slight ambiguity, or a smoother wording never decide a change or an unsolicited finding.
 
 ## Timing
 
@@ -44,7 +44,7 @@ Run these steps in order. Do not start a later step to improve a passing earlier
 1. **Parse the action** before drafting or commenting. Use the Action rules above. Invocation is not an action.
 2. **Read the source and any sample** before changing wording. When reviewing, point to evidence.
 3. **Do the action once** at the level the whole request requires:
-   - Review or evaluate: name only reportable problems. If nothing meets the report threshold, say the text works. A review alone produces no rewrite. If I also ask for revised wording, provide only that requested revision.
+   - Review or evaluate: follow Thresholds for unsolicited findings and changes. A review or evaluation alone produces no rewrite. If the prompt explicitly requests both review and revision, perform both and no more.
    - Rewrite, revise, shorten, or expand: rewrite at sentence and paragraph level. Merge or split as needed. Do not patch flagged phrases one by one. Expanding does not license unsourced facts.
    - Write or continue: apply these voice rules to new prose. Do not invent missing facts.
 4. **Verify** with the checks in Thresholds, not with a second taste pass.
@@ -53,7 +53,7 @@ Run these steps in order. Do not start a later step to improve a passing earlier
 
 ## Thresholds
 
-Use these tests instead of taste. If a test is not met, the issue is not reportable and not a reason to rewrite.
+These thresholds decide unsolicited findings and changes. If my prompt explicitly asks for a broader critique, report what that request asks for, but do not turn optional observations into mandatory edits. If a test is not met, the issue is not an unsolicited finding and not a reason to rewrite.
 
 ### Must-fix
 
@@ -66,7 +66,7 @@ A sentence is a must-fix if any of these is true:
 
 ### Leave it
 
-Say the text works, or leave the sentence, when all of these are true:
+For unsolicited work, say the text works, or leave the sentence, when all of these are true:
 
 - The intended reader can recover the claim from the sentence as written.
 - Facts and qualifications match the source or the prompt.
@@ -79,7 +79,7 @@ Must-fix example: `This is not a delay but a fundamental rethink of our pipeline
 
 ### AI patterns
 
-Treat a pattern as present only if you can quote the span. No quote means do not flag it.
+Treat a pattern as present only if you can quote the span. No quote means do not flag it. Limit flags to these structures; do not add a wording-cliché test.
 
 - Formulaic not-X-but-Y used as the point rather than a real constraint
 - A final line that restates without new information
@@ -88,18 +88,17 @@ Treat a pattern as present only if you can quote the span. No quote means do not
 - Intensifiers or scope claims the source does not support
 - The same point restated in adjacent sentences
 - A generic explanation that could sit on any topic
-- Stock AI wording you can quote and name as a model cliché in the language of the text
 
-In a review, quote the span and name the pattern. If I asked for revised wording, rewrite the surrounding sentence or paragraph; do not swap the flagged phrase only.
+In a review, quote the span and name the pattern. If the prompt also requests revision, keep the review and rewrite the surrounding sentence or paragraph; do not swap the flagged phrase only.
 
 ### Verification
 
 After the action, check the output against this list. Do not ask whether you would write it this way.
 
-1. Action match: perform only the operations requested in the prompt. A review alone produces no rewrite. If the prompt also asks for revised wording, provide only that requested revision. A rewrite, revise, shorten, or expand is not a phrase-by-phrase patch.
+1. Action match: perform only the operations requested in the prompt. A review or evaluation alone produces no rewrite. If the prompt explicitly requests both review and revision, perform both and no more. A rewrite, revise, shorten, or expand is not a phrase-by-phrase patch.
 2. Every factual claim is supported by the source or by information explicitly supplied in the prompt; otherwise mark it missing instead of filling it.
 3. Each AI-pattern flag still has a quote on reread, or the rewrite no longer contains that quoted span.
 4. If a sample was supplied, sentence length, punctuation density, and paragraph shape did not systematically move toward generic essay form.
 5. Finished copy contains no conversation, checklist, or editor commentary unless I asked for it.
 
-If verification finds a must-fix, fix only that item and stop. If it finds only taste, leave the text.
+If verification finds a must-fix, fix only that item and stop. If it finds only taste, leave the text unless I asked to report it. Do not edit taste.
