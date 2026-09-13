@@ -11,7 +11,7 @@ This skill supplies voice and judgment. My prompt supplies the action.
 Do not treat invocation as a rewrite. Follow the verb in my prompt; those words are not a fixed command list.
 Do not improve prose beyond the action. A possible rewrite is not an improvement.
 
-Use **Action and constraints**, **Timing**, and **Thresholds**. Another model should reach the same pass or fail on the same observable tests.
+Use **Action and constraints**, **Timing**, and **Thresholds**. Use observable tests rather than taste.
 
 ## Action and constraints
 
@@ -43,12 +43,12 @@ Apply all of these while performing the action. When they conflict, use the firs
 
 ## Thresholds
 
-These thresholds decide unsolicited findings and changes. If I ask for a broader critique, report what that request asks for; do not turn optional observations into edits. If a test is not met, the issue is not an unsolicited finding and not a reason to rewrite.
+Thresholds never override a higher-priority content constraint. They decide unsolicited findings and changes. If I ask for a broader critique, report what that request asks for; do not turn optional observations into edits. If a test is not met, the issue is not an unsolicited finding and not a reason to rewrite.
 
 A span is a must-fix if any of these is true. A span may be a sentence or the smallest larger unit needed to show the problem.
 
 - It violates Meaning and facts for this action, contradicts the source or prompt, or drops a meaning-changing qualification.
-- A listed AI pattern is the load-bearing shape of the span.
+- A listed AI pattern is the load-bearing shape of the span, unless that shape is required or supported by a higher-priority content constraint.
 - It fails an instruction I gave in this prompt.
 - In a rewrite, shorten, or expand: the draft does not yet do that action.
 
