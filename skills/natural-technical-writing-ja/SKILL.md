@@ -35,12 +35,14 @@ Decide by concept and usage, not by replacing words one at a time.
 2. **Established English, abbreviation, or loanword:** Keep the form Japanese practitioners normally encounter when it is clearer than a translation.
    - `API`, `RAG`, `トークン`, `埋め込み`, `ファインチューニング`
 3. **Unsettled term with an explainable concept:** Express the meaning in Japanese. If the source term aids identification or search, add it in parentheses on first occurrence only.
-   - `モデルに与える文脈を設計する手法（context engineering）`
+   - `モデルに渡すコンテキストを設計する手法（context engineering）`
 4. **Exact identity matters:** Preserve official product, service, API, library, protocol, standard, class, function, variable, CLI command, configuration key, and code identifier names.
 
 Do not invent an authoritative-sounding Japanese term for a new concept. Do not assume a literal katakana transcription is established usage. If usage is uncertain and the distinction matters, retain the original term, explain it, or verify terminology when the task permits research.
 
 Respect a glossary, style guide, official localization, or user-selected spelling when supplied. On first mention, a long explanation may introduce a shorter form for consistent later use.
+
+Distinguish `文脈` from `コンテキスト` by concept. Use `文脈` for the semantic flow, surrounding relationships, or interpretation of writing and conversation. Use `コンテキスト` for information supplied to a model or agent as input. For example, write `会話の文脈では` but `ファイルがコンテキストに含まれる`. Do not interchange the terms merely for stylistic variation.
 
 ## Rebuild the sentence in Japanese
 
@@ -62,7 +64,7 @@ Avoid: この機能は、ユーザーが効率的に設定を管理すること�
 Prefer: この機能を使うと、設定を効率よく管理できます。
 
 Avoid: agentic workflow の context を管理する。
-Prefer: 自律的に処理を進めるワークフローで、モデルに渡す文脈を管理する。
+Prefer: 自律的に処理を進めるワークフローで、モデルに渡すコンテキストを管理する。
 
 Avoid: オーケストレーションによってタスクエグゼキューションをハンドリングする。
 Prefer: 複数の処理を調整し、タスクの実行を管理する。
