@@ -16,11 +16,11 @@ Ask before writing if the instruction is ambiguous. If an entry contradicts the 
 
 ## Look up
 
-Read `memory/harness.md` and cite the matching rows. Do not change the file while looking up.
+Read `memory/harness.md`, open only the linked section files you need, and cite the matching rows. Do not change files while looking up.
 
 ## Change
 
-1. Read `memory/harness.md`. If it is missing, create it from the template below.
+1. Read `memory/harness.md` and any linked section file you will change. If `memory/harness.md` is missing, create it from the template below.
 2. Choose the section: prohibitions in Guardrails, placement and creation patterns in Scaffolding, everything else in Misc.
 3. Write one row per point: a short noun phrase as the item and one sentence as the note, with a brief reason in parentheses when useful.
 4. Update the row with the same item instead of adding a duplicate. Delete rows the administrator asks to forget.
@@ -29,6 +29,10 @@ Read `memory/harness.md` and cite the matching rows. Do not change the file whil
 7. Show the changed rows. Do not commit or push unless asked; changes go through the repository's normal review.
 
 Add a section only when the administrator asks. Write entries in the project's language.
+
+## Split
+
+If the memory grows long enough to burden reading it every session, for example beyond about 200 lines, suggest splitting it to the administrator. Split only when asked: keep Guardrails in `memory/harness.md`, move other sections to `memory/harness/<section>.md`, and leave a link with a one-line summary in their place. `memory/harness.md` stays the entry point.
 
 ## Template
 

@@ -2,6 +2,8 @@
 
 Keeps rules and facts that outgrow `AGENTS.md` in `memory/harness.md`, a file you commit and review like code. Agents read it before work and change it only when an administrator asks.
 
+When the memory grows too long to read every session, the agent suggests splitting it. Guardrails stay in `memory/harness.md`, other sections move to `memory/harness/<section>.md`, and `memory/harness.md` remains the entry point, so the routing lines do not change.
+
 ## Usage
 
 Ask in plain words, or invoke `$harness-memory` in Codex or `/harness-memory` in Cursor and Claude Code.
