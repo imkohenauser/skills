@@ -1,6 +1,6 @@
 # Agent Skills
 
-Skills for coding agents.
+Skills for products and the agents that build them.
 
 ## Install
 
@@ -20,7 +20,7 @@ Use `$skill-name` in Codex or `/skill-name` in Cursor. Cursor also supports `@` 
 
 | Skill | Task | Invocation |
 | --- | --- | --- |
-| [harness-memory](skills/harness-memory/SKILL.md) | Maintain shared project memory with coding agents. | Automatic or explicit |
+| [harness-memory](skills/harness-memory/SKILL.md) | Maintain shared project memory with agents. | Automatic or explicit |
 | [web-naming-conventions](skills/web-naming-conventions/SKILL.md) | Choose, review, and rename web-project names. | Automatic or explicit |
 | [review-accessibility](skills/review-accessibility/SKILL.md) | Review interface accessibility. | Explicit |
 | [commit-ja](skills/commit-ja/SKILL.md) | Write Japanese Conventional Commit messages; commit when requested. | Explicit |
