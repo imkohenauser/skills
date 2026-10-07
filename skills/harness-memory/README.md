@@ -4,6 +4,22 @@ Keeps rules and facts that outgrow `AGENTS.md` in `memory/harness/index.md`, a f
 
 When the memory grows too long to read every session, the agent suggests splitting it. Guardrails stay in `index.md`, other sections move to sibling files such as `memory/harness/misc.md`, and `index.md` remains the entry point, so the routing lines do not change.
 
+## Sections
+
+Harness here means the guidance agents follow in the project. The runtime that runs the skill, APIs, and tools are out of scope.
+
+```text
+Item ──▶ Misc
+  │        │
+  ▼        ▼
+Scaffolding
+  │
+  ▼
+Guardrails
+```
+
+An item that describes structure to follow goes to Scaffolding, and one that must never be broken goes on to Guardrails; other notes go to Misc. Rows firm up along the same arrows. The three sections stay fixed by default.
+
 ## Usage
 
 Ask in plain words, or invoke `$harness-memory` in Codex or `/harness-memory` in Cursor and Claude Code.
