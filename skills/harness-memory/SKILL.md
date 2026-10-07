@@ -1,6 +1,6 @@
 ---
 name: harness-memory
-description: Record, edit, delete, and look up project memory in `memory/harness/`, Git-reviewed Markdown of guardrails, scaffolding, and other notes for coding agents. Use when an administrator explicitly asks to remember, change, or forget a project rule or fact, or when work depends on recorded project memory.
+description: Record, edit, delete, and look up project memory in `memory/harness/`, Git-reviewed Markdown of guardrails, scaffolding, and notes for coding agents. Use when an administrator explicitly asks to remember, change, or forget a project rule or fact, or when work depends on recorded project memory.
 license: MIT
 ---
 
@@ -23,8 +23,8 @@ Read `memory/harness/index.md`, open only the linked section files you need, and
 ## Change
 
 1. Read `memory/harness/index.md` and any linked section file you will change. If the index is missing, create it from the template below.
-2. Choose the section by how binding the point is: structure to follow goes to Scaffolding, and what must never be broken goes on to Guardrails; other notes go to Misc. When the administrator firms up a row, move it along the same path: Misc to Scaffolding to Guardrails.
-3. Write one row per point: a short noun phrase as the item and one sentence as the note, with a brief reason in parentheses when useful.
+2. Choose the section by how binding the point is: structure to follow goes to Scaffolding, and what must never be broken goes on to Guardrails; everything else goes to Notes. When the administrator firms up a row, move it along the same path: Notes to Scaffolding to Guardrails.
+3. Write one row per point: a short noun phrase as the item and one sentence as the detail, with a brief reason in parentheses when useful.
 4. Update the row with the same item instead of adding a duplicate. Delete rows the administrator asks to forget.
 5. Keep cells on one line and free of `|`. Omit dates; Git records them.
 6. Do not record secrets or facts readable from the code or Git history.
@@ -45,16 +45,16 @@ Agent-facing project memory. Change only on an administrator's explicit instruct
 
 ## Guardrails
 
-| Item | Note |
+| Item | Detail |
 | --- | --- |
 
 ## Scaffolding
 
-| Item | Note |
+| Item | Detail |
 | --- | --- |
 
-## Misc
+## Notes
 
-| Item | Note |
+| Item | Detail |
 | --- | --- |
 ```
