@@ -1,24 +1,18 @@
 # Harness Memory
 
-Keeps rules and facts that outgrow `AGENTS.md` in `memory/harness/index.md`, a file you commit and review like code. Agents read it before work and change it only when an administrator asks.
+Keeps project-specific memory for coding agents in `memory/harness/`, outside `AGENTS.md`, `CLAUDE.md`, and skills. Agents read only what the task needs, change the memory only on explicit instruction from an administrator or an approved automation, and report, inform, and consult rather than act alone. Confidential information never goes into the memory. The same files serve interactive sessions and non-interactive automations.
 
-When the memory grows too long to read every session, the agent suggests splitting it. Guardrails stay in `index.md`, other sections move to sibling files such as `memory/harness/notes.md`, and `index.md` remains the entry point, so the routing lines do not change.
-
-## Sections
-
-Harness here means the guidance agents follow in the project. The runtime that runs the skill, APIs, and tools are out of scope.
+## Files
 
 ```text
-Item ──▶ Notes
-  │        │
-  ▼        ▼
-Scaffolding
-  │
-  ▼
-Guardrails
+memory/harness/
+├── index.md         # one link and one line per file
+├── guardrails.md    # constraints to keep, with their background
+├── scaffolding.md   # procedures, tools, environment, and references
+└── notes.md         # other lasting project information
 ```
 
-An item that describes structure to follow goes to Scaffolding, and one that must never be broken goes on to Guardrails; everything else goes to Notes. Rows firm up along the same arrows. The three sections stay fixed by default.
+Files are chosen by use, and an entry moves only when its role changes. The memory is guidance and enforces nothing; keep rules that must always apply in `AGENTS.md` or CI. When the memory grows, compress it before adding files.
 
 ## Usage
 
@@ -26,30 +20,24 @@ Ask in plain words, or invoke `$harness-memory` in Codex or `/harness-memory` in
 
 | Request | Result |
 | --- | --- |
-| Remember: never write to the production database. | Adds a row to Guardrails. |
-| Change the Scaffolding entry on new pages to `app/(site)/`. | Updates the matching row. |
-| Forget the Notes entry on date handling. | Deletes the row. |
-| What does the harness memory say about deployment? | Cites the matching rows. |
+| Remember: never write to the production database. | Adds a row to `guardrails.md`. |
+| Change the scaffolding entry on new pages to `app/(site)/`. | Edits that row only. |
+| Forget the note on date handling. | Deletes the row and checks for duplicates. |
+| Compress the harness memory. | Merges duplicates and shortens rows without adding anything. |
+| What does the harness memory say about deployment? | Reads the index and the relevant file, then cites the rows. |
 
-```markdown
-## Guardrails
-
-| Item | Detail |
-| --- | --- |
-| Production database | Never write to it (prevents a repeat incident). |
-```
-
-Review changes to `memory/harness/` in pull requests like any other change.
+The files are plain Markdown. Commit and review them like code, or keep them local with `.gitignore`. The skill does not commit or push without permission.
 
 ## Routing
 
-Installing the skill does not make agents read the memory. Add these lines to `AGENTS.md`, or to `CLAUDE.md` if that is what your clients read, and adjust the path to where the skill is installed:
+Installing the skill does not make agents read the memory. Add these lines to `AGENTS.md`:
 
 ```markdown
 ## Harness memory
 
-- Read `memory/harness/index.md` before starting work.
-- Change `memory/harness/` only on an administrator's explicit instruction, following `.agents/skills/harness-memory/SKILL.md`.
-- Keep project memory there, not in a client's built-in memory.
-- Report entries that contradict the current state instead of changing them.
+- Before starting work, read `memory/harness/index.md`, then only the files relevant to the task.
+- Change `memory/harness/` only on explicit instruction from an administrator or an approved automation, following the `harness-memory` skill.
+- Keep project memory there, not in a client's built-in memory, and never store confidential information in it.
 ```
+
+For `CLAUDE.md`, add the same lines, or import `AGENTS.md` with a line containing `@AGENTS.md`. If a client cannot load skills, replace the skill name with the path to the installed `SKILL.md`, which varies by client and install method.
