@@ -27,16 +27,7 @@ Use `$skill-name` in Codex or `/skill-name` in Cursor. Cursor also supports `@` 
 
 Invoke `commit-ja` on its own to get a message for staged changes. Ask to create a commit to commit them. To use it as a project convention, add an instruction to `AGENTS.md` to read its `SKILL.md` when committing.
 
-`harness-memory` keeps rules and facts that outgrow `AGENTS.md` in `memory/harness.md`, a file you commit and review. Agents change it only when an administrator asks. Installing the skill does not make agents read the file; add these lines to `AGENTS.md`, adjusting the path to where the skill is installed:
-
-```markdown
-## Harness memory
-
-- Read `memory/harness.md` before starting work.
-- Change it only on an administrator's explicit instruction, following `.agents/skills/harness-memory/SKILL.md`.
-- Keep project memory there, not in a client's built-in memory.
-- Report entries that contradict the current state instead of changing them.
-```
+`harness-memory` keeps rules and facts that outgrow `AGENTS.md` in `memory/harness.md`, a file you commit and review. It needs routing lines in `AGENTS.md`; see its [README](skills/harness-memory/README.md).
 
 ## Development
 
