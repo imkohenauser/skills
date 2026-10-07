@@ -1,0 +1,4 @@
+interface:
+  display_name: "Harness Memory"
+  short_description: "Record and look up Git-reviewed project memory"
+  default_prompt: "Use $harness-memory to record this rule in the project memory."
