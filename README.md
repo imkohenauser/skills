@@ -28,7 +28,7 @@ Use `$skill-name` in Codex or `/skill-name` in Cursor. Cursor also supports `@` 
 
 Invoke `commit-ja` on its own to get a message for staged changes. Ask to create a commit to commit them. To use it as a project convention, add an instruction to `AGENTS.md` to read its `SKILL.md` when committing.
 
-`harness-memory` keeps rules and facts that outgrow `AGENTS.md` in `memory/harness.md`, a file you commit and review. It needs routing lines in `AGENTS.md`; see its [README](skills/harness-memory/README.md).
+`harness-memory` keeps rules and facts that outgrow `AGENTS.md` in `memory/harness/`, files you commit and review. It needs routing lines in `AGENTS.md`; see its [README](skills/harness-memory/README.md).
 
 ## Development
 
