@@ -1,6 +1,13 @@
 # Harness Memory
 
-Keeps project-specific memory for coding agents in `memory/harness/`, outside `AGENTS.md`, `CLAUDE.md`, and skills. Agents read only what the task needs, change the memory only on explicit instruction from an administrator or an approved automation, and report, inform, and consult rather than act alone. Confidential information never goes into the memory. The same files serve interactive sessions and non-interactive automations.
+A lightweight framework for sharing project memory with coding agents.
+Agree on what to remember, keep it in readable Markdown, and carry it into future work.
+
+- **Agree**: before saving, the agent shows the exact text and the rows it changes, so you can check that no background, condition, or meaning is lost.
+- **Keep**: entries are saved as readable Markdown in `memory/harness/`, outside `AGENTS.md`, `CLAUDE.md`, and skills.
+- **Carry**: in later work, the agent reads the index and only the files the task needs, in interactive sessions and automations alike.
+
+The agent changes the memory only on explicit instruction from an administrator or an approved automation, and reports, informs, and consults rather than acting alone. Confidential information never goes into the memory.
 
 ## Files
 
@@ -12,7 +19,7 @@ memory/harness/
 └── notes.md         # other lasting project information
 ```
 
-What to record, and where, follows the project's circumstances and your intent. The memory is guidance, not rules, and enforces nothing; keep rules that must always apply in `AGENTS.md` or CI. Before saving, the agent shows the exact text and the rows it changes so you can check that no background, condition, or meaning is lost.
+What to record, and where, follows the project's circumstances and your intent. The memory is guidance, not rules, and enforces nothing; keep rules that must always apply in `AGENTS.md` or CI.
 
 ## Usage
 
@@ -34,7 +41,7 @@ The first request might be saved as:
 | December releases | December is the client's peak season, and a large release then once overloaded their support, so weigh release size and timing. |
 ```
 
-The files are plain Markdown. Commit and review them like code, or keep them local with `.gitignore`. The skill does not commit or push without permission.
+Commit and review the files like code, or keep them local with `.gitignore`. The skill does not commit or push without permission.
 
 ## Routing
 

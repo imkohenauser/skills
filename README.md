@@ -22,7 +22,7 @@ npx skills add imkohenauser/skills --agent cursor
 | [web-naming-conventions](skills/web-naming-conventions/SKILL.md) | Choose, review, and rename web-project names. | Automatic or explicit |
 | [review-accessibility](skills/review-accessibility/SKILL.md) | Review interface accessibility. | Explicit |
 | [natural-technical-writing-ja](skills/natural-technical-writing-ja/SKILL.md) | Write and revise natural, precise Japanese technical prose. | Explicit |
-| [harness-memory](skills/harness-memory/SKILL.md) | Look up and maintain project memory for agents. | Automatic or explicit |
+| [harness-memory](skills/harness-memory/SKILL.md) | Maintain shared project memory with coding agents. | Automatic or explicit |
 
 Use `$skill-name` in Codex or `/skill-name` in Cursor. Cursor also supports `@` attachments and Custom Mode.
 
