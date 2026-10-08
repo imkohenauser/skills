@@ -1,7 +1,0 @@
-interface:
-  display_name: "Natural Japanese Technical Writing"
-  short_description: "Write precise, idiomatic Japanese technical prose"
-  default_prompt: "Use $natural-technical-writing-ja for this Japanese technical writing task."
-
-policy:
-  allow_implicit_invocation: false

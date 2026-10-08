@@ -1,0 +1,4 @@
+interface:
+  display_name: "日本語の用語の見直し"
+  short_description: "日本語の用語・訳語の意味と用例を確認し、必要な箇所を見直す"
+  default_prompt: "$review-terms-jaを使って、この文章の用語・訳語を見直してください。"
