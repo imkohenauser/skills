@@ -30,16 +30,6 @@ Use `$skill-name` in Codex or `/skill-name` in Cursor. Cursor also supports `@` 
 
 **commit-ja**, invoked on its own, returns a message for staged changes. Ask to create a commit to commit them. To use it as a project convention, add an instruction to `AGENTS.md` to read its `SKILL.md` when committing.
 
-## Development
-
-Install `skills-ref`, then run:
-
-```bash
-python3 scripts/validate-skills.py
-```
-
-See [AGENTS.md](AGENTS.md) for repository conventions, [Agent Skills](https://agentskills.io/specification.md) for the format, and [skills CLI](https://github.com/vercel-labs/skills) for installation options.
-
 ## License
 
 [MIT](LICENSE)
