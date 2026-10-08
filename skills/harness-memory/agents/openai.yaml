@@ -1,4 +1,0 @@
-interface:
-  display_name: "Harness Memory"
-  short_description: "Look up and maintain project harness memory"
-  default_prompt: "Use $harness-memory to manage project harness memory."
