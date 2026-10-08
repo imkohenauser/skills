@@ -5,7 +5,6 @@
 - Store each skill in `skills/<skill-name>/SKILL.md`.
 - Use lowercase kebab-case names, at most 64 characters. Match the directory and frontmatter name.
 - Add `references/`, `scripts/`, or `assets/` only when needed. Link supporting files relative to the skill directory.
-- Keep repository-wide validation in `scripts/`.
 
 ## Frontmatter
 
@@ -26,13 +25,11 @@ For explicit-only invocation, set both client controls:
 - `disable-model-invocation: true` in `SKILL.md` for Cursor and Claude Code.
 - `policy.allow_implicit_invocation: false` in `agents/openai.yaml` for Codex.
 
-Omit both for automatic invocation. Other clients may ignore these controls. `disable-model-invocation` is a vendor extension; the repository validator permits it before running strict spec checks.
+Omit both for automatic invocation. Other clients may ignore these controls. `disable-model-invocation` is a vendor extension.
 
 ## Changes
 
 Read the affected files before editing. Preserve unrelated changes, update the README index when needed, and check names, frontmatter, links, examples, and commands.
-
-Run `python3 scripts/validate-skills.py` and any relevant script tests. Install its dependency with `pip install skills-ref` if needed.
 
 ## References
 
