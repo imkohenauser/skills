@@ -15,7 +15,7 @@ npx skills add imkohenauser/skills
 | [review-accessibility](skills/review-accessibility/SKILL.md) | Review interface accessibility. | Explicit |
 | [web-naming-conventions](skills/web-naming-conventions/SKILL.md) | Choose, review, and rename web-project names. | Automatic or explicit |
 
-### 日本のスキル
+### 日本語のスキル
 
 | スキル | 用途 | 起動 |
 | --- | --- | --- |
