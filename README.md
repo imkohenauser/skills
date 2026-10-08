@@ -8,17 +8,7 @@ Skills for products and the agents that build them.
 npx skills add imkohenauser/skills
 ```
 
-To select an agent:
-
-```bash
-npx skills add imkohenauser/skills --agent cursor
-```
-
-Use `$skill-name` in Codex or `/skill-name` in Cursor. Cursor also supports `@` attachments and Custom Mode.
-
 ## Skills
-
-### Web / UI
 
 | Skill | Task | Invocation |
 | --- | --- | --- |
