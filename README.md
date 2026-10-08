@@ -15,14 +15,14 @@ npx skills add imkohenauser/skills
 | [review-accessibility](skills/review-accessibility/SKILL.md) | Review interface accessibility. | Explicit |
 | [web-naming-conventions](skills/web-naming-conventions/SKILL.md) | Choose, review, and rename web-project names. | Automatic or explicit |
 
-### Japanese
+### 日本のスキル
 
-| Skill | Task | Invocation |
+| スキル | 用途 | 起動 |
 | --- | --- | --- |
-| [commit-ja](skills/commit-ja/SKILL.md) | Write Japanese Conventional Commit messages; commit when requested. | Explicit |
-| [natural-technical-writing-ja](skills/natural-technical-writing-ja/SKILL.md) | Write and revise natural, precise Japanese technical prose. | Explicit |
+| [commit-ja](skills/commit-ja/SKILL.md) | 日本語の Conventional Commit メッセージを作成。依頼時はコミットも実行 | 明示 |
+| [natural-technical-writing-ja](skills/natural-technical-writing-ja/SKILL.md) | 自然な日本語の技術文を執筆・推敲 | 明示 |
 
-**commit-ja**, invoked on its own, returns a message for staged changes. Ask to create a commit to commit them. To use it as a project convention, add an instruction to `AGENTS.md` to read its `SKILL.md` when committing.
+**commit-ja** は単独起動でステージ済み変更のメッセージを返す。コミット作成を依頼すると実行する。プロジェクトの慣習にする場合は、コミット時にその `SKILL.md` を読む指示を `AGENTS.md` に追加する。
 
 ## License
 
