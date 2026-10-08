@@ -19,7 +19,7 @@ npx skills add imkohenauser/skills
 
 | スキル | 用途 | 起動 |
 | --- | --- | --- |
-| [commit-ja](skills/commit-ja/SKILL.md) | 日本語の Conventional Commit メッセージを作成。依頼時はコミットも実行 | 明示 |
+| [commit-ja](skills/commit-ja/SKILL.md) | 日本語の Conventional Commit メッセージを作成。依頼時はコミットも実行 | 自動または明示 |
 | [natural-technical-writing-ja](skills/natural-technical-writing-ja/SKILL.md) | 自然な日本語の技術文を執筆・推敲 | 明示 |
 
 **commit-ja** は単独起動でステージ済み変更のメッセージを返す。コミット作成を依頼すると実行する。プロジェクトの慣習にする場合は、コミット時にその `SKILL.md` を読む指示を `AGENTS.md` に追加する。
