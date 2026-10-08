@@ -1,8 +1,7 @@
 ---
 name: commit-ja
-description: ステージ済みの変更から日本語の Conventional Commit メッセージを作成する。`$commit-ja` や `/commit-ja` での起動、スキルとしての添付、プロジェクトのコミット規約としての指定で使う。依頼されればコミットも作成する。
+description: ステージ済みの変更から日本語の Conventional Commit メッセージを作成し、依頼されればコミットする。日本語のコミットメッセージを求められたとき、またはプロジェクトのコミット規約に指定されているときに使う。
 license: MIT
-disable-model-invocation: true
 ---
 
 # 日本語コミットメッセージ
