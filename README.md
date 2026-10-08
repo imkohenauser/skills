@@ -18,10 +18,17 @@ Use `$skill-name` in Codex or `/skill-name` in Cursor. Cursor also supports `@` 
 
 ## Skills
 
+### Web / UI
+
 | Skill | Task | Invocation |
 | --- | --- | --- |
-| [web-naming-conventions](skills/web-naming-conventions/SKILL.md) | Choose, review, and rename web-project names. | Automatic or explicit |
 | [review-accessibility](skills/review-accessibility/SKILL.md) | Review interface accessibility. | Explicit |
+| [web-naming-conventions](skills/web-naming-conventions/SKILL.md) | Choose, review, and rename web-project names. | Automatic or explicit |
+
+### Japanese
+
+| Skill | Task | Invocation |
+| --- | --- | --- |
 | [commit-ja](skills/commit-ja/SKILL.md) | Write Japanese Conventional Commit messages; commit when requested. | Explicit |
 | [natural-technical-writing-ja](skills/natural-technical-writing-ja/SKILL.md) | Write and revise natural, precise Japanese technical prose. | Explicit |
 
