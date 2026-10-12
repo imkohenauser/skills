@@ -1,0 +1,7 @@
+interface:
+  display_name: "視座・境界監査"
+  short_description: "LLM生成文書の視座・文脈・責務の混同を監査"
+  default_prompt: "$perspective-audit を使用して、指定した文章の視座とコンテキスト境界を監査してください。"
+
+policy:
+  allow_implicit_invocation: false
