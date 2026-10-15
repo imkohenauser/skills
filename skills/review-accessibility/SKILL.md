@@ -1,13 +1,12 @@
 ---
 name: review-accessibility
-description: Review interface code, diffs, or rendered flows for accessibility barriers. Use when explicitly invoked as `$review-accessibility` or `/review-accessibility`.
+description: Review interface code, diffs, or rendered flows for accessibility barriers. Use when accessibility, a11y, WCAG, screen reader, keyboard, or contrast issues are requested or required by project rules, not for ordinary UI work.
 license: MIT
-disable-model-invocation: true
 ---
 
 # Review Accessibility
 
-Review the requested interface or flow. Do not edit files unless fixes are explicitly requested.
+Review the requested interface or flow, or the interface changes in the working tree if none is named. When accessibility is part of another request, follow that request's scope and output. Do not edit files unless fixes are explicitly requested.
 
 Use the project's accessibility target, or WCAG 2.2 AA if none is stated. Use the relevant sections of [review-checks.md](references/review-checks.md).
 
