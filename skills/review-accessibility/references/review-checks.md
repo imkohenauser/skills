@@ -5,14 +5,16 @@ Use the checks relevant to the flow and review target.
 ## Semantics
 
 - Native links for navigation and buttons for actions; preserve browser link behavior.
-- Accessible names for controls, including visible labels; roles and states matching behavior.
+- Accessible names for links and controls, including visible labels; roles and states matching behavior.
 - Valid `aria-labelledby` and `aria-describedby` references; no focusable content under `aria-hidden="true"`.
-- Useful landmarks, page title, headings, and a way to bypass repeated content.
+- Page title and language, useful landmarks and headings, and a way to bypass repeated content.
+- Lists, data tables, and control groups exposed in markup when their structure carries meaning.
 - Image alternatives matching purpose: empty for decoration, meaning for information, action or destination for functional images.
 
 ## Keyboard and focus
 
 - Complete tasks with the keyboard; check focus order, visibility, and equivalent operation.
+- Focused elements not entirely hidden by sticky headers, banners, or other author content.
 - Test custom focus indicators, including forced-colors mode where relevant.
 - Check actual ordering problems from positive `tabindex`; allow expected roving tabindex in composite widgets.
 - For modals, check entry focus, background isolation, focus containment, expected Escape behavior, and restoration.
@@ -20,26 +22,28 @@ Use the checks relevant to the flow and review target.
 
 ## Forms and updates
 
-- Programmatic labels, input types, autocomplete, paste, and password-manager support.
+- Programmatic labels, input types, and autocomplete. No unexpected context change on focus or input.
+- Authentication without memory or transcription tests unless an alternative exists, including paste and password-manager support.
+- Previously entered information filled in or selectable instead of requested again in the same process.
 - Visible, associated, reachable errors and accurate invalid states. Allow users to obtain actionable validation.
 - Control-specific descriptions, polite routine status updates, and alerts for urgent updates.
 - Stable live regions and enough time to access essential messages and actions.
 
-## Visual access
+## Visual and pointer access
 
 - Information conveyed beyond color or motion alone.
-- Measured rendered contrast; token names are insufficient evidence.
+- Measured rendered contrast for text, UI components, meaningful graphics, and focus indicators; token names are insufficient evidence.
 - Target size under the applicable criterion, including its spacing, inline, equivalent-control, user-agent, and essential exceptions.
+- Single-pointer alternatives for dragging and for multipoint or path-based gestures.
 - Usable hit areas without obstructing overlays or overlap; hover interactions that also work on touch.
-- Text resize, zoom, and narrow reflow without loss of function. Allow scrolling for two-dimensional content.
+- Hover or focus content that users can dismiss and hover, and that stays visible until no longer needed.
+- Text resize, text spacing, zoom, and narrow reflow without loss of content or function. Allow scrolling for two-dimensional content.
 
 ## Motion and media
 
-- Controls for moving or auto-updating content, flash limits, and access to time-limited information.
+- Controls for autoplaying audio and for moving or auto-updating content, flash limits, and access to time-limited information.
 - Reduced-motion behavior that retains necessary state cues. At AA, distinguish recommendations from AAA criterion 2.3.3 or explicit project requirements.
-- Captions for prerecorded speech video and text alternatives for audio.
-
-Record browser, input method, zoom, or assistive technology when it affects the finding. Source inspection cannot verify screen-reader announcements.
+- Captions for video with speech, audio description for prerecorded video, and text alternatives for audio.
 
 ## References
 
