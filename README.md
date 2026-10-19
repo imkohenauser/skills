@@ -13,11 +13,8 @@ npx skills add imkohenauser/skills
 ```bash
 npx skills update review-accessibility
 npx skills update web-naming-conventions
-```
 
-### 日本語のスキル
-
-```bash
+# 日本語のスキル
 npx skills update commit-ja
 npx skills update perspective-audit-ja
 npx skills update review-terms-ja
