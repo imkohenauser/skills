@@ -8,6 +8,18 @@ Skills for products and the agents that build them.
 npx skills add imkohenauser/skills
 ```
 
+## Update
+
+```bash
+npx skills update review-accessibility
+npx skills update web-naming-conventions
+
+# 日本語のスキル
+npx skills update commit-ja
+npx skills update perspective-audit-ja
+npx skills update review-terms-ja
+```
+
 ## Skills
 
 | Skill | Task | Invocation |
