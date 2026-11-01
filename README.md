@@ -15,6 +15,7 @@ npx skills update review-accessibility
 npx skills update web-naming-conventions
 
 # 日本語のスキル
+npx skills update article-titles-ja
 npx skills update commit-ja
 npx skills update perspective-audit-ja
 npx skills update review-terms-ja
@@ -31,6 +32,7 @@ npx skills update review-terms-ja
 
 | スキル | 用途 | 起動 |
 | --- | --- | --- |
+| [article-titles-ja](skills/article-titles-ja/SKILL.md) | 日本語記事のタイトル案を作成し、本文との一致や誇張を点検 | 自動または明示 |
 | [commit-ja](skills/commit-ja/SKILL.md) | 日本語の Conventional Commit メッセージを作成。依頼時はコミットも実行 | 自動または明示 |
 | [perspective-audit-ja](skills/perspective-audit-ja/SKILL.md) | LLM生成文書やAgent向け指示の視座・文脈・責務の混同を監査 | 明示 |
 | [review-terms-ja](skills/review-terms-ja/SKILL.md) | 日本語の用語・訳語を見直し、必要に応じて意味と用例を調査 | 自動または明示 |

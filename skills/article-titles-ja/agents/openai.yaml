@@ -1,0 +1,4 @@
+interface:
+  display_name: "日本語記事タイトル"
+  short_description: "日本語記事のタイトル案を作成し、本文との一致を点検"
+  default_prompt: "$article-titles-ja を使って、この記事のタイトル案を出してください。"
