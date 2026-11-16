@@ -1,0 +1,4 @@
+interface:
+  display_name: "無生物主語の見直し"
+  short_description: "英語の骨組みが残った無生物主語を見つけ、日本語らしい形に直す"
+  default_prompt: "$inanimate-subjects-jaを使って、この文章の無生物主語を見直してください。"
